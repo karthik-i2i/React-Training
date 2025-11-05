@@ -146,7 +146,7 @@
 
 .disabled-btn {
   opacity: 0.5;
-  pointer-events: none; /* prevents clicks */
+  pointer-events: none; 
   background-color: #ccc;
   color: #666;
 }

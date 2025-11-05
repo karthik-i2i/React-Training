@@ -8,7 +8,7 @@ export default function TodoForm() {
   const [time, setTime] = useState("");
   const [priority, setPriority] = useState("");
   const [important, setImportant] = useState(false);
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Personal");
   const [editId, setEditId] = useState(null);
 
   const [minDate, setMinDate] = useState("");
@@ -68,10 +68,17 @@ export default function TodoForm() {
     setTime("");
     setPriority("");
     setImportant(false);
-    setType("");
+    setType("Personal");
     setEditId(null);
     dispatch({ type: "SET_EDIT_TASK", payload: null });
   }
+
+  const isFormValid =
+    taskText.trim() &&
+    date &&
+    time &&
+    priority &&
+    type;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -84,10 +91,10 @@ export default function TodoForm() {
             <input type="time" value={time} onChange={(e) => setTime(e.target.value)}/>
           </div>
           <div className="save-cancel-btn">
-            <button type="submit" id="addTaskBtn">
+            <button type="submit" id="addTaskBtn" disabled={!isFormValid} className={!isFormValid ? "disabled-btn" : ""}>
               {editId ? "Save" : "Add Task"}
             </button>
-            {editId && (<button type="button" id="cancelBtn" onClick={handleCancel}>Cancel</button>)}
+            <button type="button" id="cancelBtn" onClick={handleCancel}>Clear</button>
           </div>
 
         </div>
@@ -97,15 +104,15 @@ export default function TodoForm() {
             <input type="number" placeholder="Priority (1-5)" min="1" max="5" value={priority} onChange={(e) => setPriority(e.target.value)} required/>
             <div className="options-group">
               <label>
-                <input type="checkbox" checked={important} onChange={(e) => setImportant(e.target.checked)}/>{" "} 
+                <input type="checkbox" checked={important} onChange={(e) => setImportant(e.target.checked)}/>
                 Mark as Important
               </label>
               <label>
-                <input type="radio" name="taskType" value="Personal" checked={type === "Personal"} onChange={(e) => setType(e.target.value)} required/>{" "}
+                <input type="radio" name="taskType" value="Personal" checked={type === "Personal"} onChange={(e) => setType(e.target.value)} required/>
                 Personal
               </label>
               <label>
-                <input type="radio" name="taskType" value="Work" checked={type === "Work"} onChange={(e) => setType(e.target.value)} required />{" "}
+                <input type="radio" name="taskType" value="Work" checked={type === "Work"} onChange={(e) => setType(e.target.value)} required />
                 Work
               </label>
             </div>
