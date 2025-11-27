@@ -1,0 +1,46 @@
+.user-form-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: inherit;
+}
+
+.user-form-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.user-form-row {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+.user-form-left-row, .user-form-right-row {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.error-text {
+  padding-left: 0.8rem;
+}
+
+.user-form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  width: 30%
+}
+
+.user-form-buttons button {
+  width: 70%;  
+}
+
+

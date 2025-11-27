@@ -1,0 +1,67 @@
+.save-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.save-task-form h2 {
+  margin: 0 0 0.25rem 0;
+  color: #1c3973;
+}
+
+.save-task-form .input-field {
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #d6dbe9;
+  background: #fff;
+  font-size: 14px;
+}
+
+.save-task-form .status-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.save-task-form .assignee-wrapper {
+  position: relative;
+}
+
+.save-task-form .assignee-dropdown {
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  margin-top: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.save-task-form .assignee-item {
+  padding: 0.8rem;
+  cursor: pointer;
+}
+
+.save-task-form .assignee-item:hover {
+  background: #e7e7ff;
+}
+
+.save-task-form .no-match {
+  color: gray;
+  text-align: center;
+  padding: 0.8rem;
+}
+
+input[type="radio"] {
+  color-scheme: light;
+}
+
+textarea.input-field { 
+  font-family: 'Arial', sans-serif; 
+  font-weight: 400; 
+  color: #333; 
+  font-size: 16px; 
+  line-height: normal; 
+}

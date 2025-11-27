@@ -1,0 +1,27 @@
+.app-card {
+  background: #f8f8ff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 6px solid #1C3973;
+  border: 1px solid #dce1ff;
+  color: #172A61;
+  position: relative;
+}
+
+.todo-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.todo-item-main h4 {
+  margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  .todo-card {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+}

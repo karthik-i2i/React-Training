@@ -1,0 +1,131 @@
+.login-wrapper {
+  display: flex;
+  width: 80%;
+  min-height: 90vh;
+  height: auto;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.login-left {
+  flex: 1.2;
+  padding: 4rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, #1C3973, #2F68AD);
+}
+
+.login-left h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.login-left p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  width: 80%;
+  line-height: 1.5rem;
+}
+
+.login-right {
+  flex: 0.8;
+  background: white;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.login-right h2 {
+  color: #6a5af9;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.password-row.fancy {
+  position: relative;
+  width: 100%;
+}
+
+.password-input {
+  font-size: 1rem;
+  padding-right: 2.8rem; /* space for icon */
+  transition: opacity 0.25s ease;
+}
+
+.password-input.fade {
+  opacity: 0.6;
+}
+
+.link-btn {
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  color: #6a5af9;
+  cursor: pointer;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.link-btn:focus,
+.link-btn:active {
+  outline: none;
+}
+
+@media (max-width: 900px) {
+  .login-wrapper {
+    width: 95%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .login-left,
+  .login-right {
+    width: 100%;
+    flex: unset;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .login-left p {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .login-left {
+    padding: 1.5rem;
+    width: auto;
+  }
+  .login-left h1 {
+    font-size: 1.8rem;
+  }
+
+  .login-left p {
+    width: 100%;  /* allow full width */
+    margin: 0 auto; /* center it just in case */
+  }
+
+  .login-right {
+    padding: 2rem 1rem;
+  }
+
+  .input-field,
+  .password-input,
+  .gradient-btn {
+    font-size: 0.9rem;
+  }
+}
+
