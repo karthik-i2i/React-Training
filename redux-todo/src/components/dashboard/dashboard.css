@@ -12,6 +12,8 @@
   justify-content: space-between;
   align-items: center;
   color: white;
+  position: relative;
+  z-index: 10010;
 }
 
 .todoBody {
@@ -155,6 +157,7 @@
 
 .profile-dropdown-wrapper {
   position: relative;
+  z-index: 9999;
 }
 
 .profile-circle {
@@ -172,7 +175,7 @@
   cursor: pointer;
   border: 2px solid rgba(255,255,255,0.4);
   transition: 0.25s ease;
-}
+} 
 
 .profile-circle:hover {
   background: rgba(255,255,255,0.35);
@@ -190,6 +193,7 @@
   border: 1px solid rgba(255,255,255,0.3);
   overflow: hidden;
   animation: dropdownFade 0.2s ease;
+  z-index: 10011;
 }
 
 @keyframes dropdownFade {

@@ -2,8 +2,10 @@ import "./card.css";
 
 export default function Card({type, data, users, onEdit, onStatus, onDelete, showStatusDropdown, setShowStatusDropdown, onStatusChange}) {
 
+  const statusClass = type === 'task' ? `status-${(data?.status || '').toLowerCase().replace(/\s+/g, '')}` : '';
+  
   return (
-    <div className={`app-card ${type === "task" ? "todo-card" : ""}`}>
+    <div className={`app-card ${type === "task" ? "todo-card" : ""} ${statusClass}`}>
       {type === "user" && (
         <>
           <span><strong>Name:</strong> {data.firstName} {data.lastName}</span><br/>
@@ -16,7 +18,7 @@ export default function Card({type, data, users, onEdit, onStatus, onDelete, sho
       {type === "task" && (
         <>
           <div className="todo-item-main">
-            <h4>{data.title}</h4>
+            <h4 style={{textDecoration: data.status.toLowerCase() === 'completed' ? 'line-through' : 'none'}}>{data.title}</h4>
             {data.description && (
               <p className="task-desc">Description: {data.description}</p>
             )}
@@ -26,23 +28,24 @@ export default function Card({type, data, users, onEdit, onStatus, onDelete, sho
 
           <div className="todo-actions">
             <button className="todo-action-btn" onClick={() => onEdit(data)}>Edit</button>
-            <button className="todo-action-btn" onClick={() => onStatus(data.id)}>Status</button>
+            <div className="status-btn-wrapper">
+              <button className="todo-action-btn" onClick={() => onStatus(data.id)}>Status</button>
+              {showStatusDropdown === data.id && (
+                <div className="status-dropdown" onMouseLeave={() => setShowStatusDropdown(null)}>
+                  {["Todo", "In progress", "Completed"].map(status => (
+                    <div
+                      key={status}
+                      className={`status-option ${data.status === status ? "selected" : ""}`}
+                      onClick={() => onStatusChange(data.id, status)}
+                    >
+                      {status}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
             <button className="todo-action-btn delete-btn" onClick={() => onDelete(data)}>Delete</button>
           </div>
-
-          {showStatusDropdown === data.id && (
-            <div className="status-dropdown" onMouseLeave={() => setShowStatusDropdown(null)}>
-              {["Todo", "In progress", "Completed"].map(status => (
-                <div
-                  key={status}
-                  className={`status-option ${data.status === status ? "selected" : ""}`}
-                  onClick={() => onStatusChange(data.id, status)}
-                >
-                  {status}
-                </div>
-              ))}
-            </div>
-          )}
         </>
       )}
     </div>

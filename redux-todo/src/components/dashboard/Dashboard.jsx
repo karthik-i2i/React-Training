@@ -6,7 +6,7 @@ import PasswordInput from '../password/PasswordInput.jsx';
 import UserForm from '../user-form/UserForm.jsx';
 import Popup from '../popup/Popup.jsx';
 import UsersList from '../users-list/UsersList.jsx';
-import Todo from '../todo/ToDo.jsx';
+import Todo from '../todo/Todo.jsx';
 import './dashboard.css';
 
 export default function Dashboard() {
@@ -54,12 +54,6 @@ export default function Dashboard() {
     logout();
     navigate("/");
   };
-
-  const resetForm = () => {
-    setTaskInput('');
-    setIsEditTask(false);
-    setEditIndex(null);
-  }
 
   const handlePasswordUpdate = async () => {
     setPasswordError('');

@@ -19,6 +19,72 @@
   margin-top: 0;
 }
 
+.todo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.todo-action-btn {
+  padding: 0.3rem 0.8rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1C3973, #2F68AD);
+  color: white;
+  font-size: 14px;
+}
+
+.todo-action-btn:focus {
+  outline: none;
+}
+
+.todo-action-btn:hover {
+  opacity: 0.8;
+}
+
+.status-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 140px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 9999;
+}
+
+.status-option {
+  padding: 0.5rem 0.7rem;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.status-option:hover {
+  background: #e7e7ff;
+}
+
+.status-option.selected {
+  background: #dbe7ff;
+  font-weight: 600;
+}
+
+.status-btn-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.todo-card.status-todo {
+  background: #add8e6d9; 
+}
+.todo-card.status-inprogress {
+  background: #ffed49a6; 
+}
+.todo-card.status-completed {
+  background: #90ee90c2; 
+}
+
 @media (max-width: 600px) {
   .todo-card {
     flex-direction: column;
